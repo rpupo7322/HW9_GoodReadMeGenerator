@@ -83,6 +83,11 @@ const promptUser = () => {
 var licenseBadge;
 
 
+const createFile = (answers) => {
+    githubLicense(answers);
+    writeFileAsync('ReadME.md', generateReadME(answers));
+}
+
 const githubLicense = (answers) => {
     if (answers.license === 'GNU GPLv3') {
         licenseBadge = badges[0]
@@ -91,12 +96,11 @@ const githubLicense = (answers) => {
     } else {
         licenseBadge = badges[2]
     }
-
 }
 
 const generateReadME = (answers) =>
   `# ${answers.title}
-  ${licenseBadge}
+${licenseBadge}
 ## Description
 ${answers.description}
 ## Table of Contents
@@ -127,8 +131,9 @@ Email: ${answers.email}
 // Bonus using writeFileAsync as a promise
 const init = () => {
   promptUser()
-    .then((answers) => )
-    .then((answers) => writeFileAsync('ReadME.md', generateReadME(answers)))
+    // .then((answers) => githubLicense(answers))
+    // .then((answers) => writeFileAsync('ReadME.md', generateReadME(answers)))
+    .then((answers) => createFile(answers))
     .then(() => console.log('Successfully wrote to ReadME.md'))
     .catch((err) => console.error(err));
 };
