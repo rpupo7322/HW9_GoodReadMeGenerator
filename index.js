@@ -5,42 +5,81 @@ const util = require('util');
 // create writeFile function using promises instead of a callback function
 const writeFileAsync = util.promisify(fs.writeFile);
 
+
+// ```md
+// GIVEN a command-line application that accepts user input
+// WHEN I am prompted for information about my application repository
+// THEN a high-quality, professional README.md is generated with the title of my project and 
+// sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
+// WHEN I enter my project title
+// THEN this is displayed as the title of the README
+// WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
+// THEN this information is added to the sections of the README entitled Description, Installation, 
+// Usage, Contributing, and Tests
+// WHEN I choose a license for my application from a list of options
+// THEN a badge for that license is added near the top of the README and a notice is added to the 
+// section of the README entitled License that explains which license the application is covered under
+// WHEN I enter my GitHub username
+// THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
+// WHEN I enter my email address
+// THEN this is added to the section of the README entitled Questions, with instructions on how to reach me 
+// with additional questions
+// WHEN I click on the links in the Table of Contents
+// THEN I am taken to the corresponding section of the README
+// ```
+
 const promptUser = () => {
   return inquirer.prompt([
     {
       type: 'input',
-      name: 'name',
-      message: 'What is your name?',
+      name: 'title',
+      message: 'What is the title of your project?',
     },
     {
       type: 'input',
-      name: 'location',
-      message: 'Where are you from?',
+      name: 'description',
+      message: 'Please enter a description of your project.',
     },
     {
       type: 'input',
-      name: 'hobby',
-      message: 'What is your favorite hobby?',
+      name: 'install',
+      message: 'Please provide installation instructions.',
     },
     {
       type: 'input',
-      name: 'food',
-      message: 'What is your favorite food?',
+      name: 'usage',
+      message: 'Please provide usage information.',
+    },
+    {
+        type: 'input',
+        name: 'contribution',
+        message: 'Please provide contribution guidelines.',
+    },
+    {
+        type: 'input',
+        name: 'test',
+        message: 'Please provide test instructions.',
+    },
+    {
+      type: 'list',
+      name: 'license',
+      message: 'Choose your preferred license:',
+      choices: ['GNU GPLv3', 'MIT License', 'Apache License 2.0']
     },
     {
       type: 'input',
-      name: 'github',
-      message: 'Enter your GitHub Username',
+      name: 'GitHub',
+      message: 'Enter your GitHub username.',
     },
     {
-      type: 'input',
-      name: 'linkedin',
-      message: 'Enter your LinkedIn URL.',
+        type: 'input',
+        name: 'email',
+        message: 'Enter your email address.',
     },
   ]);
 };
 
-const generateHTML = (answers) =>
+const generateReadME = (answers) =>
   `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,8 +106,8 @@ const generateHTML = (answers) =>
 // Bonus using writeFileAsync as a promise
 const init = () => {
   promptUser()
-    .then((answers) => writeFileAsync('index.html', generateHTML(answers)))
-    .then(() => console.log('Successfully wrote to index.html'))
+    .then((answers) => writeFileAsync('ReadME.txt', generateReadME(answers)))
+    .then(() => console.log('Successfully wrote to ReadME.txt'))
     .catch((err) => console.error(err));
 };
 

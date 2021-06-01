@@ -1,0 +1,23 @@
+{
+  "name": "hw9_goodreadmegenerator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "inquirer": "^8.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpupo7322/HW9_GoodReadMeGenerator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rpupo7322/HW9_GoodReadMeGenerator/issues"
+  },
+  "homepage": "https://github.com/rpupo7322/HW9_GoodReadMeGenerator#readme"
+}
