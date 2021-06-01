@@ -79,35 +79,43 @@ const promptUser = () => {
   ]);
 };
 
+// Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
+
 const generateReadME = (answers) =>
-  `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <title>Document</title>
-</head>
-<body>
-  <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Hi! My name is ${answers.name}</h1>
-    <p class="lead">I am from ${answers.location}.</p>
-    <h3>Example heading <span class="badge badge-secondary">Contact Me</span></h3>
-    <ul class="list-group">
-      <li class="list-group-item">My GitHub username is ${answers.github}</li>
-      <li class="list-group-item">LinkedIn: ${answers.linkedin}</li>
-    </ul>
-  </div>
-</div>
-</body>
-</html>`;
+  `# ${answers.title}
+## Description
+${answers.description}
+## Table of Contents
+* [Title]()
+* [Description]()
+* [Table of contents]()
+* [Installation]()
+* [Usage]()
+* [License]()
+* [Contributing]()
+* [Tests]()
+* [Questions]()
+## Installation
+${answers.install}
+## Usage
+${answers.usage}
+## License
+${answers.license}
+## Contributing
+${answers.contribution}
+## Tests
+${answers.test}
+## Questions
+Github account: https://github.com/${answers.github}/
+Please feel free to reach out with any questions! I can always be reached via the email address below.
+Email: ${answers.email}
+`;
 
 // Bonus using writeFileAsync as a promise
 const init = () => {
   promptUser()
-    .then((answers) => writeFileAsync('ReadME.txt', generateReadME(answers)))
-    .then(() => console.log('Successfully wrote to ReadME.txt'))
+    .then((answers) => writeFileAsync('ReadME.md', generateReadME(answers)))
+    .then(() => console.log('Successfully wrote to ReadME.md'))
     .catch((err) => console.error(err));
 };
 
