@@ -5,6 +5,7 @@ const util = require('util');
 // create writeFile function using promises instead of a callback function
 const writeFileAsync = util.promisify(fs.writeFile);
 
+const badges = ['[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)','[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)','[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)']
 
 // ```md
 // GIVEN a command-line application that accepts user input
@@ -79,10 +80,23 @@ const promptUser = () => {
   ]);
 };
 
-// Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
+var licenseBadge;
+
+
+const githubLicense = (answers) => {
+    if (answers.license === 'GNU GPLv3') {
+        licenseBadge = badges[0]
+    } else if  (answers.license === 'MIT License') {
+        licenseBadge = badges[1]
+    } else {
+        licenseBadge = badges[2]
+    }
+
+}
 
 const generateReadME = (answers) =>
   `# ${answers.title}
+  ${licenseBadge}
 ## Description
 ${answers.description}
 ## Table of Contents
@@ -113,6 +127,7 @@ Email: ${answers.email}
 // Bonus using writeFileAsync as a promise
 const init = () => {
   promptUser()
+    .then((answers) => )
     .then((answers) => writeFileAsync('ReadME.md', generateReadME(answers)))
     .then(() => console.log('Successfully wrote to ReadME.md'))
     .catch((err) => console.error(err));

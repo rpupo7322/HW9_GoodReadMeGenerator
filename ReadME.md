@@ -1,4 +1,5 @@
 # Sample Project Title
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Description
 Here be the description of the sample project.
 ## Table of Contents
