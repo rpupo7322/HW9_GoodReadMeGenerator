@@ -86,15 +86,14 @@ const generateReadME = (answers) =>
 ## Description
 ${answers.description}
 ## Table of Contents
-* [Title]()
-* [Description]()
-* [Table of contents]()
-* [Installation]()
-* [Usage]()
-* [License]()
-* [Contributing]()
-* [Tests]()
-* [Questions]()
+* [Description](#description)
+* [Table of contents](#table-of-contents)
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
 ## Installation
 ${answers.install}
 ## Usage
@@ -106,7 +105,7 @@ ${answers.contribution}
 ## Tests
 ${answers.test}
 ## Questions
-Github account: https://github.com/${answers.github}/
+Github account: https://github.com/${answers.GitHub}/
 Please feel free to reach out with any questions! I can always be reached via the email address below.
 Email: ${answers.email}
 `;

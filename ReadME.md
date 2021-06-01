@@ -2,15 +2,14 @@
 ## Description
 Here be the description of the sample project.
 ## Table of Contents
-* [Title]()
-* [Description]()
-* [Table of contents]()
-* [Installation]()
-* [Usage]()
-* [License]()
-* [Contributing]()
-* [Tests]()
-* [Questions]()
+* [Description](#description)
+* [Table of contents](#table-of-contents)
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
 ## Installation
 There should be a green button that states "install". Please click that button and the wizard will do the rest.
 ## Usage
@@ -22,6 +21,6 @@ none may contribute without prior approval, reach out via email if you have some
 ## Tests
 test early, test often
 ## Questions
-Github account: https://github.com/undefined/
+Github account: https://github.com/rpupo7322/
 Please feel free to reach out with any questions! I can always be reached via the email address below.
 Email: pupo.robert@gmail.com
